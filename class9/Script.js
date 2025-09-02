@@ -83,22 +83,61 @@
 
 
 
-//xhr
-const xhr= new XMLHttpRequest()
-xhr.open("GET","https://jsonplaceholder.typicode.com/posts")
-xhr.responseType = 'json'
-xhr.send()
-xhr.onload=(()=>{
-console.log(xhr.response[0].id)})
+// //xhr
+// const xhr= new XMLHttpRequest()
+// xhr.open("GET","https://jsonplaceholder.typicode.com/posts")
+// xhr.responseType = 'json'
+// xhr.send()
+// xhr.onload=(()=>{
+// console.log(xhr.response[0].id)})
 
 
 
 
-//promise
-const ramu = new Promise ((res,rej)=>{
-    res (fetch("https://jsonplaceholder.typicode.com/posts"))
-})
-ramu.then((data)=> console.log(data))
+// //promise to fetch the data through API   promise to fetch the data through API  
+
+// const ramu = new Promise ((res,rej)=>{
+//     res (fetch("https://jsonplaceholder.typicode.com/posts"))
+// })
+// ramu.then((data)=> console.log(data))
+
+
+// const promise= new Promise((resolve) => {
+    
+//     const apidata= fetch("https://jsonplaceholder.typicode.com/posts");
+//        resolve(apidata)
+
+//         // reject("promise rejected")
+
+// })
+
+// promise.then((ress)=>{console.log(ress)}).catch((errr)=>{console.log(errr)});
+
+
+
+
+// api fetching data from the url using async and await 
+
+
+let arrr1=[]
+ async function apiCAll(urll){
+
+    try{
+       
+        const dataa = await fetch(urll)
+       const ress= await dataa.json()     // to meko pta he convert krna he json format me
+       console.log(ress.results[0]);     // ye yaha prr  bhai 1 hi object he to vo aa jayegii
+
+    }
+    catch(err){
+        console.log(" err msg",err);
+    }
+}
+
+// apiCAll("https://datausa.io/api/data?drilldowns=Nation&measures=Population")
+
+apiCAll("https://randomuser.e/api/");
+
 
 
 
